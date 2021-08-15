@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext,useRef,useEffect } from "react";
 import TodoContext from "./../../context/todoContext";
 
 const AddNewTask = () => {
     const context = useContext(TodoContext);
+    const focusInput = useRef(null);
+
+    useEffect(() => {
+        focusInput.current.focus();
+    }, []);
 
     return (
         <div className="w-50 mx-auto fixed-bottom mb-5 p-3 wrapper">
@@ -12,6 +17,7 @@ const AddNewTask = () => {
             >
                 <div className="input-group w-100">
                     <input
+                        ref={focusInput}
                         type="text"
                         className="form-control rounded"
                         placeholder=" تسک جدیدت رو اینجا اضافه کن!   "

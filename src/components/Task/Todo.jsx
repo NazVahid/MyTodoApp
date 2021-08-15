@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 
 const Todo = ({ text, isCompleted, deleted, completed }) => {
     return (
         <Fragment>
             <div
-                className={`todo-indicator ${
-                    isCompleted ? "bg-success" : "bg-warning"
-                }`}
+                className={`todo-indicator ${isCompleted ? "bg-success" : "bg-warning"
+                    }`}
             ></div>
             <div className="widget-content p-0">
                 <div className="widget-content-wrapper">
@@ -37,5 +37,13 @@ const Todo = ({ text, isCompleted, deleted, completed }) => {
         </Fragment>
     );
 };
+
+Todo.propTypes = {
+    text: PropTypes.string,
+    isCompleted: PropTypes.bool,
+    deleted: PropTypes.func,
+    completed: PropTypes.func
+};
+
 
 export default Todo;
