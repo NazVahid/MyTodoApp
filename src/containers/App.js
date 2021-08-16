@@ -1,18 +1,22 @@
-import React from "react";
-
+import React, { Fragment } from "react";
+import { Route, Switch } from "react-router-dom";
 
 import Todos from "../components/Task/Todos";
 import AddNewTask from "../components/Task/AddNewTask";
-import { Fragment } from "react";
+import About from './../components/Common/About';
+import Nav from './../components/Common/Nav';
 
 const App = () => {
-
     return (
         <Fragment>
+            <Nav/>
             <div className="d-flex justify-content-center container">
                 <div className="col-md-8">
                     <div className="card-hover-shadow-2x mb-3 card">
-                        <Todos />
+                        <Switch>
+                            <Route path="/" exact component={Todos} />
+                            <Route path="/about" component={About} />
+                        </Switch>
                     </div>
                 </div>
             </div>
